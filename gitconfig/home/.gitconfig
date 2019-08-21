@@ -1,0 +1,37 @@
+[user]
+	name = Ally Parker
+	email = ally.parker@red-gate.com
+[credential]
+	helper = cache --timeout=86400
+[alias]
+    cm = checkout master
+    cob = "!f(){ git checkout -b $1; }; f"
+    rc = rebase --continue
+    ra = rebase --abort
+    rhm = reset --hard origin/master
+    rh = "!f(){ git reset --hard; git clean -f; }; f"
+    ru = remote update --prune
+	kill = "!f() { git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs -r git branch -D; }; f"
+    p = "!f(){ git checkout master; git ru; git rhm; }; f"
+	shove = push --force-with-lease
+	graph = log --oneline --graph
+[merge]
+    keepBackup = false;
+    tool = p4merge
+[mergetool]
+    keepBackup = false
+    prompt = false
+[mergetool "p4merge"]
+[diff]
+    tool = p4merge
+[difftool]
+    prompt = false
+    keepBackup = false
+[difftool "p4merge"]
+[rerere]
+    enabled = true
+    autoupdate = true
+[help]
+    autocorrect = 1
+[pull]
+    rebase = true
