@@ -1,8 +1,6 @@
 [user]
 	name = Ally Parker
 	email = ally.parker@red-gate.com
-[credential]
-	helper = cache --timeout=86400
 [alias]
     cm = checkout master
     cob = "!f(){ git checkout -b $1; }; f"
