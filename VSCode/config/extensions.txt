@@ -1,2 +1,16 @@
+alefragnani.project-manager
+bierner.github-markdown-preview
+bierner.markdown-checkbox
+bierner.markdown-emoji
+bierner.markdown-preview-github-styles
+bierner.markdown-yaml-preamble
+codezombiech.gitignore
+CoenraadS.bracket-pair-colorizer-2
+donjayamanne.git-extension-pack
+donjayamanne.githistory
+eamodio.gitlens
 EditorConfig.EditorConfig
-esbenp.prettier-vscode
+ms-vscode.cpptools
+vscodevim.vim
+xaver.clang-format
+ziyasal.vscode-open-in-github
