@@ -1,35 +1,44 @@
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[credential]
+	helper = manager
 [user]
 	name = Ally Parker
 	email = ally.parker@red-gate.com
 [alias]
-    cm = checkout master
-    cob = "!f(){ git checkout -b $1; }; f"
-    rc = rebase --continue
-    ra = rebase --abort
-    rhm = reset --hard origin/master
-    rh = "!f(){ git reset --hard; git clean -f; }; f"
-    ru = remote update --prune
+	cm = checkout master
+	cob = "!f(){ git checkout -b $1; }; f"
+	rc = rebase --continue
+	ra = rebase --abort
+	rhm = reset --hard origin/master
+	rh = "!f(){ git reset --hard; git clean -f; }; f"
+	ru = remote update --prune
 	kill = "!f() { git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs -r git branch -D; }; f"
-    p = "!f(){ git checkout master; git ru; git rhm; }; f"
+	p = "!f(){ git checkout master; git ru; git rhm; }; f"
 	shove = push --force-with-lease
 	graph = log --oneline --graph
 [merge]
-    keepBackup = false;
-    tool = p4merge
+	keepBackup = false;
+	tool = p4merge
 [mergetool]
-    keepBackup = false
-    prompt = false
+	keepBackup = false
+	prompt = false
 [mergetool "p4merge"]
 [diff]
-    tool = p4merge
+	tool = p4merge
 [difftool]
-    prompt = false
-    keepBackup = false
+	prompt = false
+	keepBackup = false
 [difftool "p4merge"]
 [rerere]
-    enabled = true
-    autoupdate = true
+	enabled = true
+	autoupdate = true
 [help]
-    autocorrect = 1
+	autocorrect = 1
 [pull]
-    rebase = true
+	rebase = true
+[core]
+	excludesfile = ~/.gitignore
