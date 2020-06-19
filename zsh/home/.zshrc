@@ -115,6 +115,8 @@ export BAT_THEME="ansi-dark"
 alias vim="nvim"
 alias cat="bat"
 alias ls="exa"
+alias la="ls -a"
 alias fixwslmem="sudo sh -c 'sync;echo 1 > /proc/sys/vm/compact_memory;echo 1 > /proc/sys/vm/drop_caches;echo 2 > /proc/sys/vm/drop_caches;echo 3 > /proc/sys/vm/drop_caches;touch /root/drop_caches_last_run;sync;echo 1 > /proc/sys/vm/drop_caches;echo 2 > /proc/sys/vm/drop_caches;echo 3 > /proc/sys/vm/drop_caches;touch /root/drop_caches_last_run'"
 
-export DISPLAY=172.18.64.1:0
+export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
+export PATH="/home/linuxbrew/.linuxbrew/opt/openjdk/bin:$PATH"

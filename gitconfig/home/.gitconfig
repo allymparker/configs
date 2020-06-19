@@ -9,17 +9,18 @@
 	name = Ally Parker
 	email = ally.parker@red-gate.com
 [alias]
-	cm = checkout master
+	cm = checkout main
 	cob = "!f(){ git checkout -b $1; }; f"
 	rc = rebase --continue
 	ra = rebase --abort
-	rhm = reset --hard origin/master
+	rhm = reset --hard origin/main
 	rh = "!f(){ git reset --hard; git clean -f; }; f"
 	ru = remote update --prune
-	kill = "!f() { git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs -r git branch -D; }; f"
-	p = "!f(){ git checkout master; git ru; git rhm; }; f"
+	kill = "!f() { git branch --merged ${1-main} | grep -v " ${1-main}$" | xargs -r git branch -D; }; f"
+	p = "!f(){ git checkout main; git ru; git rhm; }; f"
 	shove = push --force-with-lease
 	graph = log --oneline --graph
+	new = !git init && git symbolic-ref HEAD refs/heads/main
 [merge]
 	keepBackup = false;
 	tool = p4merge
