@@ -21,6 +21,7 @@
 	shove = push --force-with-lease
 	graph = log --oneline --graph
 	new = !git init && git symbolic-ref HEAD refs/heads/main
+    co = checkout
 [merge]
 	keepBackup = false;
 	tool = p4merge
@@ -28,12 +29,14 @@
 	keepBackup = false
 	prompt = false
 [mergetool "p4merge"]
+    path=p4merge.exe
 [diff]
 	tool = p4merge
 [difftool]
 	prompt = false
 	keepBackup = false
 [difftool "p4merge"]
+    path=p4merge.exe
 [rerere]
 	enabled = true
 	autoupdate = true
@@ -43,3 +46,13 @@
 	rebase = true
 [core]
 	excludesfile = ~/.gitignore
+    pager = delta
+
+[delta]
+    side-by-side = true
+ #   plus-color = "#012800"
+  #  minus-color = "#340001"
+   # syntax-theme = Monokai Extended
+
+[interactive]
+    diffFilter = delta --color-only

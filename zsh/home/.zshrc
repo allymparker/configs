@@ -52,7 +52,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -115,8 +115,25 @@ export BAT_THEME="ansi-dark"
 alias vim="nvim"
 alias cat="bat"
 alias ls="exa"
-alias la="ls -a"
+alias ll="exa -lha"
 alias fixwslmem="sudo sh -c 'sync;echo 1 > /proc/sys/vm/compact_memory;echo 1 > /proc/sys/vm/drop_caches;echo 2 > /proc/sys/vm/drop_caches;echo 3 > /proc/sys/vm/drop_caches;touch /root/drop_caches_last_run;sync;echo 1 > /proc/sys/vm/drop_caches;echo 2 > /proc/sys/vm/drop_caches;echo 3 > /proc/sys/vm/drop_caches;touch /root/drop_caches_last_run'"
+alias cc="code ."
+alias kc=kubectx
+alias kn=kubens
+alias knr=kubens redgate
+
+export PATH="/home/linuxbrew/.linuxbrew/opt/openjdk/bin:$HOME/.local/bin:$PATH"
+export PATH=$PATH:/home/ally/.linkerd2/bin
+export PATH="${PATH}:${HOME}/.krew/bin"
+export PATH=$PATH:~/.dotnet/tools
+export PATH=$PATH:/home/ally/.dapr/bin
+
+# linuxbrew autocomplete
+# Add zsh completion scripts installed via Homebrew
+fpath=("$HOMEBREW_PREFIX/share/zsh/site-functions" $fpath)
+
+# Reload the zsh-completions
+autoload -U compinit && compinit
 
 export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
-export PATH="/home/linuxbrew/.linuxbrew/opt/openjdk/bin:$PATH"
+export VAULT_ADDR=https://vault.red-gate.com:8200

@@ -15,7 +15,10 @@ set relativenumber
 set number
 set nowrap
 
-" search options
+" editing settings
+set backspace=2
+
+"search options
 set hls 
 set ignorecase " ignore case when searching
 set smartcase " ignore case, unless search has an Uppercase letter
